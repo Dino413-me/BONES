@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BONES — Skeletal System Study Guide</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#6ee7b7}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#061021 0%, #081422 100%); color:#e6eef6; line-height:1.45}
+    header{padding:28px 20px; text-align:center}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted); margin-top:6px}
+
+    .container{max-width:980px;margin:18px auto;padding:18px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .card{background:rgba(255,255,255,0.02);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    .images img{width:100%;border-radius:8px;display:block;margin-bottom:12px}
+    table{width:100%;border-collapse:collapse;margin-top:6px}
+    th,td{padding:8px 6px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03);font-size:14px}
+    th{color:var(--accent);font-weight:600}
+
+    .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .notes p{margin:6px 0;color:var(--muted);font-size:14px}
+
+    .quiz{margin-top:12px}
+    .quiz button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
+
+    .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⭐ BONES — Skeletal System Study Guide</h1>
+    <p class="lead">Interactive single-file study guide for the 27 labelled bones. Includes images, table, and a quick quiz.</p>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <h2>Skeleton Diagrams</h2>
+        <div class="images">
+          <!-- Using the uploaded local image paths from the session -->
+          <img alt="Skeleton front/side diagram" src="/mnt/data/Screenshot 2025-11-21 083458.png">
+          <img alt="Bones list diagram" src="/mnt/data/Screenshot 2025-11-21 083514.png">
+        </div>
+
+        <h3>Quick table — 27 bones</h3>
+        <table aria-label="27 bones table">
+          <thead><tr><th>#</th><th>Bone</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Clavicle</td></tr>
+            <tr><td>2</td><td>Sternum</td></tr>
+            <tr><td>3</td><td>Radius</td></tr>
+            <tr><td>4</td><td>Ulna</td></tr>
+            <tr><td>5</td><td>Carpals</td></tr>
+            <tr><td>6</td><td>Metacarpals</td></tr>
+            <tr><td>7</td><td>Phalanges (Hand)</td></tr>
+            <tr><td>8</td><td>Patella</td></tr>
+            <tr><td>9</td><td>Tarsals</td></tr>
+            <tr><td>10</td><td>Metatarsals</td></tr>
+            <tr><td>11</td><td>Frontal</td></tr>
+            <tr><td>12</td><td>Vertebrae</td></tr>
+            <tr><td>13</td><td>Coccyx / Temporal (diagram reused 13)</td></tr>
+            <tr><td>14</td><td>Frontal (side/top)</td></tr>
+            <tr><td>15</td><td>Maxilla</td></tr>
+            <tr><td>16</td><td>Mandible</td></tr>
+            <tr><td>17</td><td>Fibula</td></tr>
+            <tr><td>18</td><td>Tibia</td></tr>
+            <tr><td>19</td><td>Humerus</td></tr>
+            <tr><td>20</td><td>Ilium</td></tr>
+            <tr><td>21</td><td>Scapula</td></tr>
+            <tr><td>22</td><td>Ribs</td></tr>
+            <tr><td>23</td><td>Ischium</td></tr>
+            <tr><td>24</td><td>Femur</td></tr>
+            <tr><td>25</td><td>Calcaneus</td></tr>
+            <tr><td>26</td><td>Phalanges (Foot)</td></tr>
+            <tr><td>27</td><td>Pubis</td></tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <aside class="card">
+        <h3>Study Notes</h3>
+        <div class="notes">
+          <div>
+            <h4>Upper Body</h4>
+            <p><strong>Clavicle (1)</strong> — collarbone</p>
+            <p><strong>Sternum (2)</strong> — center chest</p>
+            <p><strong>Humerus (19)</strong> — upper arm</p>
+            <p><strong>Radius (3)</strong> — thumb side</p>
+          </div>
+          <div>
+            <h4>Pelvis + Legs</h4>
+            <p><strong>Ilium (20)</strong> — top pelvis</p>
+            <p><strong>Ischium (23)</strong> — sit bone</p>
+            <p><strong>Femur (24)</strong> — thigh</p>
+            <p><strong>Patella (8)</strong> — kneecap</p>
+          </div>
+        </div>
+
+        <div class="quiz">
+          <h3>Quick Quiz</h3>
+          <div id="quiz-area">
+            <!-- Questions injected by JS -->
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button id="check-btn">Check Answers</button>
+            <button id="reset-btn">Reset</button>
+            <div id="score" style="margin-left:auto;color:var(--muted)"></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <h4>Repo</h4>
+          <p style="color:var(--muted);font-size:13px">Simple single-file HTML. If you prefer separate CSS/JS files I can split them for you.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h3>How to use</h3>
+      <ol>
+        <li>Download or copy this file into your BONES repo as <code>index.html</code>.</li>
+        <li>Ensure the two screenshots remain accessible at these paths (or change the <code>src</code> to your images folder):
+          <ul>
+            <li><code>/mnt/data/Screenshot 2025-11-21 083458.png</code></li>
+            <li><code>/mnt/data/Screenshot 2025-11-21 083514.png</code></li>
+          </ul>
+        </li>
+        <li>Open <code>index.html</code> in your browser to study and use the quiz.</li>
+      </ol>
+    </div>
+
+    <div class="footer">Made for the BONES repo • Ask me to split into separate HTML/CSS/JS files or to add more quiz questions.</div>
+  </main>
+
+  <script>
+    // Quiz data
+    const quiz = [
+      {q:'What bone is labelled 19?', a:'Humerus'},
+      {q:'Which number is the Pubis?', a:'27'},
+      {q:'Which bone is the heel?', a:'Calcaneus'},
+      {q:'Phalanges numbers (hand then foot)?', a:'7, 26'}
+    ];
+
+    const quizArea = document.getElementById('quiz-area');
+    const checkBtn = document.getElementById('check-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const scoreEl = document.getElementById('score');
+
+    function renderQuiz(){
+      quizArea.innerHTML = '';
+      quiz.forEach((item, i)=>{
+        const div = document.createElement('div');
+        div.style.marginBottom='10px';
+        div.innerHTML = `
+          <label style="display:block;font-weight:600">${i+1}. ${item.q}</label>
+          <input data-index="${i}" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Type your answer...">
+          <div class=\"answer\" style="margin-top:6px;color:var(--muted);font-size:13px;display:none">Answer: ${item.a}</div>
+        `;
+        quizArea.appendChild(div);
+      });
+      scoreEl.textContent = '';
+    }
+
+    checkBtn.addEventListener('click', ()=>{
+      const inputs = quizArea.querySelectorAll('input');
+      let correct = 0;
+      inputs.forEach(input=>{
+        const idx = +input.dataset.index;
+        const val = input.value.trim().toLowerCase();
+        const ans = quiz[idx].a.toLowerCase();
+        if(ans.includes(',')){
+          // multiple allowed, check each comma-sep piece present
+          const parts = ans.split(',').map(s=>s.trim());
+          const ok = parts.every(p=> val.includes(p));
+          if(ok) correct++;
+        } else {
+          if(val === ans) correct++;
+        }
+        input.nextElementSibling.style.display = 'block';
+      });
+      scoreEl.textContent = `Score: ${correct} / ${quiz.length}`;
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+      renderQuiz();
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
