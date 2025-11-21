@@ -29,16 +29,15 @@
 <body>
   <header>
     <h1>⭐ BONES — Skeletal System Study Guide</h1>
-    <p class="lead">Interactive single-file study guide for the 27 labelled bones. Includes images, table, and a quick quiz.</p>
+    <p class="lead">Interactive single-file study guide for the 27 labelled bones. Includes diagram, table, and a quick quiz.</p>
   </header>
 
   <main class="container">
     <div class="grid">
       <section class="card">
-        <h2>Skeleton Diagrams</h2>
+        <h2>Skeleton Diagram</h2>
         <div class="images">
           <img alt="Skeleton front/side diagram" src="images/skeleton-diagram.png">
-          <img alt="Bones list diagram" src="images/bones-list.png">
         </div>
 
         <h3>Quick table — 27 bones</h3>
@@ -104,11 +103,6 @@
             <div id="score" style="margin-left:auto;color:var(--muted)"></div>
           </div>
         </div>
-
-        <div style="margin-top:12px">
-          <h4>Repo</h4>
-          <p style="color:var(--muted);font-size:13px">Simple single-file HTML. If you prefer separate CSS/JS files I can split them for you.</p>
-        </div>
       </aside>
     </div>
 
@@ -116,11 +110,8 @@
       <h3>How to use</h3>
       <ol>
         <li>Save this file as <code>index.html</code> in your BONES repo.</li>
-        <li>Create a folder called <code>images</code> and upload your two images:
-          <ul>
-            <li><code>skeleton-diagram.png</code></li>
-            <li><code>bones-list.png</code></li>
-          </ul>
+        <li>Create a folder called <code>images</code> and upload your diagram:
+          <ul><li><code>skeleton-diagram.png</code></li></ul>
         </li>
         <li>Visit your GitHub Pages site to view it live.</li>
       </ol>
@@ -138,4 +129,15 @@
     ];
 
     const quizArea = document.getElementById('quiz-area');
-    const checkBtn = document.get
+    const checkBtn = document.getElementById('check-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const scoreEl = document.getElementById('score');
+
+    function renderQuiz(){
+      quizArea.innerHTML = '';
+      quiz.forEach((item, i)=>{
+        const div = document.createElement('div');
+        div.style.marginBottom='10px';
+        div.innerHTML = `
+          <label style="display:block;font-weight:600">${i+1}. ${item.q}</label>
+         
