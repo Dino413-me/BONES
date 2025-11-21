@@ -43,33 +43,33 @@
         <table aria-label="27 bones table">
           <thead><tr><th>Bone</th></tr></thead>
           <tbody>
-            <tr><td>Clavicle</td></tr>
-            <tr><td>Sternum</td></tr>
+            <tr><td>Femur</td></tr>
             <tr><td>Radius</td></tr>
-            <tr><td>Ulna</td></tr>
-            <tr><td>Carpals</td></tr>
+            <tr><td>Scapula</td></tr>
             <tr><td>Metacarpals</td></tr>
-            <tr><td>Phalanges (Hand)</td></tr>
             <tr><td>Patella</td></tr>
+            <tr><td>Humerus</td></tr>
+            <tr><td>Phalanges (Foot)</td></tr>
+            <tr><td>Ulna</td></tr>
+            <tr><td>Clavicle</td></tr>
             <tr><td>Tarsals</td></tr>
+            <tr><td>Calcaneus</td></tr>
+            <tr><td>Sternum</td></tr>
             <tr><td>Metatarsals</td></tr>
-            <tr><td>Frontal</td></tr>
+            <tr><td>Ribs</td></tr>
+            <tr><td>Phalanges (Hand)</td></tr>
+            <tr><td>Fibula</td></tr>
+            <tr><td>Mandible</td></tr>
+            <tr><td>Maxilla</td></tr>
+            <tr><td>Ilium</td></tr>
+            <tr><td>Ischium</td></tr>
+            <tr><td>Pubis</td></tr>
             <tr><td>Vertebrae</td></tr>
             <tr><td>Coccyx / Temporal</td></tr>
             <tr><td>Frontal (side/top)</td></tr>
-            <tr><td>Maxilla</td></tr>
-            <tr><td>Mandible</td></tr>
-            <tr><td>Fibula</td></tr>
+            <tr><td>Frontal</td></tr>
+            <tr><td>Carpals</td></tr>
             <tr><td>Tibia</td></tr>
-            <tr><td>Humerus</td></tr>
-            <tr><td>Ilium</td></tr>
-            <tr><td>Scapula</td></tr>
-            <tr><td>Ribs</td></tr>
-            <tr><td>Ischium</td></tr>
-            <tr><td>Femur</td></tr>
-            <tr><td>Calcaneus</td></tr>
-            <tr><td>Phalanges (Foot)</td></tr>
-            <tr><td>Pubis</td></tr>
           </tbody>
         </table>
       </section>
@@ -149,7 +149,6 @@
         quizArea.appendChild(div);
       });
 
-      // "I was right" button
       quizArea.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', () => {
           const i = btn.getAttribute('data-index');
@@ -172,7 +171,6 @@
         let isCorrect = false;
         if (userAnswer === correctAnswer) isCorrect = true;
 
-        // Handle comma-separated answers ignoring order
         if (item.a.includes(',') && userAnswer) {
           const sortedUser = userAnswer.split(',').map(s => s.trim()).sort().join(',');
           const sortedCorrect = correctAnswer.split(',').map(s => s.trim()).sort().join(',');
