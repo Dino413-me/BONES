@@ -18,12 +18,10 @@
     table{width:100%;border-collapse:collapse;margin-top:6px}
     th,td{padding:8px 6px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03);font-size:14px}
     th{color:var(--accent);font-weight:600}
-    .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .notes p{margin:6px 0;color:var(--muted);font-size:14px}
     .quiz{margin-top:12px}
     .quiz button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
     .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
     input{width:100%;padding:6px;margin-top:4px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02);color:#e6eef6}
   </style>
 </head>
@@ -43,58 +41,40 @@
 
         <h3>Quick table — 27 bones</h3>
         <table aria-label="27 bones table">
-          <thead><tr><th>#</th><th>Bone</th></tr></thead>
+          <thead><tr><th>Bone</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>Clavicle</td></tr>
-            <tr><td>2</td><td>Sternum</td></tr>
-            <tr><td>3</td><td>Radius</td></tr>
-            <tr><td>4</td><td>Ulna</td></tr>
-            <tr><td>5</td><td>Carpals</td></tr>
-            <tr><td>6</td><td>Metacarpals</td></tr>
-            <tr><td>7</td><td>Phalanges (Hand)</td></tr>
-            <tr><td>8</td><td>Patella</td></tr>
-            <tr><td>9</td><td>Tarsals</td></tr>
-            <tr><td>10</td><td>Metatarsals</td></tr>
-            <tr><td>11</td><td>Frontal</td></tr>
-            <tr><td>12</td><td>Vertebrae</td></tr>
-            <tr><td>13</td><td>Coccyx / Temporal</td></tr>
-            <tr><td>14</td><td>Frontal (side/top)</td></tr>
-            <tr><td>15</td><td>Maxilla</td></tr>
-            <tr><td>16</td><td>Mandible</td></tr>
-            <tr><td>17</td><td>Fibula</td></tr>
-            <tr><td>18</td><td>Tibia</td></tr>
-            <tr><td>19</td><td>Humerus</td></tr>
-            <tr><td>20</td><td>Ilium</td></tr>
-            <tr><td>21</td><td>Scapula</td></tr>
-            <tr><td>22</td><td>Ribs</td></tr>
-            <tr><td>23</td><td>Ischium</td></tr>
-            <tr><td>24</td><td>Femur</td></tr>
-            <tr><td>25</td><td>Calcaneus</td></tr>
-            <tr><td>26</td><td>Phalanges (Foot)</td></tr>
-            <tr><td>27</td><td>Pubis</td></tr>
+            <tr><td>Clavicle</td></tr>
+            <tr><td>Sternum</td></tr>
+            <tr><td>Radius</td></tr>
+            <tr><td>Ulna</td></tr>
+            <tr><td>Carpals</td></tr>
+            <tr><td>Metacarpals</td></tr>
+            <tr><td>Phalanges (Hand)</td></tr>
+            <tr><td>Patella</td></tr>
+            <tr><td>Tarsals</td></tr>
+            <tr><td>Metatarsals</td></tr>
+            <tr><td>Frontal</td></tr>
+            <tr><td>Vertebrae</td></tr>
+            <tr><td>Coccyx / Temporal</td></tr>
+            <tr><td>Frontal (side/top)</td></tr>
+            <tr><td>Maxilla</td></tr>
+            <tr><td>Mandible</td></tr>
+            <tr><td>Fibula</td></tr>
+            <tr><td>Tibia</td></tr>
+            <tr><td>Humerus</td></tr>
+            <tr><td>Ilium</td></tr>
+            <tr><td>Scapula</td></tr>
+            <tr><td>Ribs</td></tr>
+            <tr><td>Ischium</td></tr>
+            <tr><td>Femur</td></tr>
+            <tr><td>Calcaneus</td></tr>
+            <tr><td>Phalanges (Foot)</td></tr>
+            <tr><td>Pubis</td></tr>
           </tbody>
         </table>
       </section>
 
       <aside class="card">
-        <h3>Study Notes</h3>
-        <div class="notes">
-          <div>
-            <h4>Upper Body</h4>
-            <p><strong>Clavicle (1)</strong> — collarbone</p>
-            <p><strong>Sternum (2)</strong> — center chest</p>
-            <p><strong>Humerus (19)</strong> — upper arm</p>
-            <p><strong>Radius (3)</strong> — thumb side</p>
-          </div>
-          <div>
-            <h4>Pelvis + Legs</h4>
-            <p><strong>Ilium (20)</strong> — top pelvis</p>
-            <p><strong>Ischium (23)</strong> — sit bone</p>
-            <p><strong>Femur (24)</strong> — thigh</p>
-            <p><strong>Patella (8)</strong> — kneecap</p>
-          </div>
-        </div>
-
         <div class="quiz">
           <h3>Quick Quiz</h3>
           <div id="quiz-area"></div>
@@ -113,50 +93,110 @@
   </main>
 
   <script>
-    const quiz = [
-      {q:'What bone is labelled 19?', a:'Humerus'},
-      {q:'Which number is the Pubis?', a:'27'},
-      {q:'Which bone is the heel?', a:'Calcaneus'},
-      {q:'Phalanges numbers (hand then foot)?', a:'7, 26'}
+    const allQuestions = [
+      {q:'What is bone #1?', a:'Clavicle'},
+      {q:'What is bone #2?', a:'Sternum'},
+      {q:'What is bone #3?', a:'Radius'},
+      {q:'What is bone #4?', a:'Ulna'},
+      {q:'What is bone #5?', a:'Carpals'},
+      {q:'What is bone #6?', a:'Metacarpals'},
+      {q:'What is bone #7?', a:'Phalanges (Hand)'},
+      {q:'What is bone #8?', a:'Patella'},
+      {q:'What is bone #9?', a:'Tarsals'},
+      {q:'What is bone #10?', a:'Metatarsals'},
+      {q:'What is bone #11?', a:'Frontal'},
+      {q:'What is bone #12?', a:'Vertebrae'},
+      {q:'What is bone #13?', a:'Coccyx / Temporal'},
+      {q:'What is bone #14?', a:'Frontal (side/top)'},
+      {q:'What is bone #15?', a:'Maxilla'},
+      {q:'What is bone #16?', a:'Mandible'},
+      {q:'What is bone #17?', a:'Fibula'},
+      {q:'What is bone #18?', a:'Tibia'},
+      {q:'What is bone #19?', a:'Humerus'},
+      {q:'What is bone #20?', a:'Ilium'},
+      {q:'What is bone #21?', a:'Scapula'},
+      {q:'What is bone #22?', a:'Ribs'},
+      {q:'What is bone #23?', a:'Ischium'},
+      {q:'What is bone #24?', a:'Femur'},
+      {q:'What is bone #25?', a:'Calcaneus'},
+      {q:'What is bone #26?', a:'Phalanges (Foot)'},
+      {q:'What is bone #27?', a:'Pubis'}
     ];
+
+    function getRandomQuestions(n) {
+      const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, n);
+    }
+
+    let quiz = getRandomQuestions(4);
 
     const quizArea = document.getElementById('quiz-area');
     const checkBtn = document.getElementById('check-btn');
     const resetBtn = document.getElementById('reset-btn');
     const scoreEl = document.getElementById('score');
 
-    function renderQuiz(){
+    function renderQuiz() {
       quizArea.innerHTML = '';
-      quiz.forEach((item, i)=>{
+      quiz.forEach((item, i) => {
         const div = document.createElement('div');
-        div.style.marginBottom='10px';
+        div.style.marginBottom = '14px';
         div.innerHTML = `
           <label style="display:block;font-weight:600">${i+1}. ${item.q}</label>
           <input type="text" data-index="${i}" placeholder="Type your answer here">
+          <div style="margin-top:4px;font-size:13px;color:var(--muted)" class="correct-answer" data-index="${i}"></div>
+          <button type="button" data-index="${i}" style="margin-top:4px;font-size:12px;padding:4px 6px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02);color:var(--accent);cursor:pointer">I was right</button>
         `;
         quizArea.appendChild(div);
       });
+
+      // "I was right" button
+      quizArea.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const i = btn.getAttribute('data-index');
+          const input = quizArea.querySelector(`input[data-index="${i}"]`);
+          input.style.borderColor = '#6ee7b7';
+          const correctDiv = quizArea.querySelector(`.correct-answer[data-index="${i}"]`);
+          correctDiv.textContent = `Correct: ${quiz[i].a}`;
+          updateScore();
+        });
+      });
     }
 
-    function checkAnswers(){
-      let correct = 0;
-      quiz.forEach((item, i)=>{
+    function checkAnswers() {
+      quiz.forEach((item, i) => {
         const input = quizArea.querySelector(`input[data-index="${i}"]`);
-        if(input.value.trim().toLowerCase() === item.a.toLowerCase()){
-          correct++;
-          input.style.borderColor = '#6ee7b7';
-        } else {
-          input.style.borderColor = 'red';
+        const correctDiv = quizArea.querySelector(`.correct-answer[data-index="${i}"]`);
+        const userAnswer = input.value.trim().toLowerCase();
+        const correctAnswer = item.a.toLowerCase();
+
+        let isCorrect = false;
+        if (userAnswer === correctAnswer) isCorrect = true;
+
+        // Handle comma-separated answers ignoring order
+        if (item.a.includes(',') && userAnswer) {
+          const sortedUser = userAnswer.split(',').map(s => s.trim()).sort().join(',');
+          const sortedCorrect = correctAnswer.split(',').map(s => s.trim()).sort().join(',');
+          if (sortedUser === sortedCorrect) isCorrect = true;
         }
+
+        input.style.borderColor = isCorrect ? '#6ee7b7' : 'red';
+        correctDiv.textContent = `Correct: ${item.a}`;
+      });
+      updateScore();
+    }
+
+    function updateScore() {
+      let correct = 0;
+      quiz.forEach((item, i) => {
+        const input = quizArea.querySelector(`input[data-index="${i}"]`);
+        if (input.style.borderColor === 'rgb(110, 231, 179)') correct++;
       });
       scoreEl.textContent = `Score: ${correct} / ${quiz.length}`;
     }
 
-    function resetQuiz(){
-      quizArea.querySelectorAll('input').forEach(input=>{
-        input.value = '';
-        input.style.borderColor = 'rgba(255,255,255,0.1)';
-      });
+    function resetQuiz() {
+      quiz = getRandomQuestions(4);
+      renderQuiz();
       scoreEl.textContent = '';
     }
 
