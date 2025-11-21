@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -29,7 +29,6 @@
 
     .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* responsive */
     @media (max-width:880px){.grid{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
   </style>
 </head>
@@ -44,9 +43,8 @@
       <section class="card">
         <h2>Skeleton Diagrams</h2>
         <div class="images">
-          <!-- Using the uploaded local image paths from the session -->
-          <img alt="Skeleton front/side diagram" src="/mnt/data/Screenshot 2025-11-21 083458.png">
-          <img alt="Bones list diagram" src="/mnt/data/Screenshot 2025-11-21 083514.png">
+          <img alt="Skeleton front/side diagram" src="images/skeleton-diagram.png">
+          <img alt="Bones list diagram" src="images/bones-list.png">
         </div>
 
         <h3>Quick table — 27 bones</h3>
@@ -65,7 +63,7 @@
             <tr><td>10</td><td>Metatarsals</td></tr>
             <tr><td>11</td><td>Frontal</td></tr>
             <tr><td>12</td><td>Vertebrae</td></tr>
-            <tr><td>13</td><td>Coccyx / Temporal (diagram reused 13)</td></tr>
+            <tr><td>13</td><td>Coccyx / Temporal</td></tr>
             <tr><td>14</td><td>Frontal (side/top)</td></tr>
             <tr><td>15</td><td>Maxilla</td></tr>
             <tr><td>16</td><td>Mandible</td></tr>
@@ -82,7 +80,6 @@
             <tr><td>27</td><td>Pubis</td></tr>
           </tbody>
         </table>
-
       </section>
 
       <aside class="card">
@@ -106,9 +103,7 @@
 
         <div class="quiz">
           <h3>Quick Quiz</h3>
-          <div id="quiz-area">
-            <!-- Questions injected by JS -->
-          </div>
+          <div id="quiz-area"></div>
           <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
             <button id="check-btn">Check Answers</button>
             <button id="reset-btn">Reset</button>
@@ -126,74 +121,20 @@
     <div class="card" style="margin-top:18px">
       <h3>How to use</h3>
       <ol>
-        <li>Download or copy this file into your BONES repo as <code>index.html</code>.</li>
-        <li>Ensure the two screenshots remain accessible at these paths (or change the <code>src</code> to your images folder):
+        <li>Save this file as <code>index.html</code> in your BONES repo.</li>
+        <li>Create a folder called <code>images</code> and upload your two images:
           <ul>
-            <li><code>/mnt/data/Screenshot 2025-11-21 083458.png</code></li>
-            <li><code>/mnt/data/Screenshot 2025-11-21 083514.png</code></li>
+            <li><code>skeleton-diagram.png</code></li>
+            <li><code>bones-list.png</code></li>
           </ul>
         </li>
-        <li>Open <code>index.html</code> in your browser to study and use the quiz.</li>
+        <li>Visit your GitHub Pages site to view it live.</li>
       </ol>
     </div>
 
-    <div class="footer">Made for the BONES repo • Ask me to split into separate HTML/CSS/JS files or to add more quiz questions.</div>
+    <div class="footer">Made for the BONES repo • Ask me to add more quiz questions or split into separate files.</div>
   </main>
 
   <script>
-    // Quiz data
     const quiz = [
-      {q:'What bone is labelled 19?', a:'Humerus'},
-      {q:'Which number is the Pubis?', a:'27'},
-      {q:'Which bone is the heel?', a:'Calcaneus'},
-      {q:'Phalanges numbers (hand then foot)?', a:'7, 26'}
-    ];
-
-    const quizArea = document.getElementById('quiz-area');
-    const checkBtn = document.getElementById('check-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const scoreEl = document.getElementById('score');
-
-    function renderQuiz(){
-      quizArea.innerHTML = '';
-      quiz.forEach((item, i)=>{
-        const div = document.createElement('div');
-        div.style.marginBottom='10px';
-        div.innerHTML = `
-          <label style="display:block;font-weight:600">${i+1}. ${item.q}</label>
-          <input data-index="${i}" style="width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Type your answer...">
-          <div class=\"answer\" style="margin-top:6px;color:var(--muted);font-size:13px;display:none">Answer: ${item.a}</div>
-        `;
-        quizArea.appendChild(div);
-      });
-      scoreEl.textContent = '';
-    }
-
-    checkBtn.addEventListener('click', ()=>{
-      const inputs = quizArea.querySelectorAll('input');
-      let correct = 0;
-      inputs.forEach(input=>{
-        const idx = +input.dataset.index;
-        const val = input.value.trim().toLowerCase();
-        const ans = quiz[idx].a.toLowerCase();
-        if(ans.includes(',')){
-          // multiple allowed, check each comma-sep piece present
-          const parts = ans.split(',').map(s=>s.trim());
-          const ok = parts.every(p=> val.includes(p));
-          if(ok) correct++;
-        } else {
-          if(val === ans) correct++;
-        }
-        input.nextElementSibling.style.display = 'block';
-      });
-      scoreEl.textContent = `Score: ${correct} / ${quiz.length}`;
-    });
-
-    resetBtn.addEventListener('click', ()=>{
-      renderQuiz();
-    });
-
-    renderQuiz();
-  </script>
-</body>
-</html>
+      {q:'What bone
