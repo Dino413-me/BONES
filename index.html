@@ -24,6 +24,7 @@
     .quiz button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
     .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
     @media (max-width:880px){.grid{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
+    input{width:100%;padding:6px;margin-top:4px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.02);color:#e6eef6}
   </style>
 </head>
 <body>
@@ -107,8 +108,8 @@
     </div>
 
     <div class="card" style="margin-top:18px">
-
-    <div class="footer">Made for the BONES repo • Ask me to add more quiz questions or split into separate files.</div>
+      <div class="footer">Made for the BONES repo • Ask me to add more quiz questions or split into separate files.</div>
+    </div>
   </main>
 
   <script>
@@ -131,4 +132,38 @@
         div.style.marginBottom='10px';
         div.innerHTML = `
           <label style="display:block;font-weight:600">${i+1}. ${item.q}</label>
-         
+          <input type="text" data-index="${i}" placeholder="Type your answer here">
+        `;
+        quizArea.appendChild(div);
+      });
+    }
+
+    function checkAnswers(){
+      let correct = 0;
+      quiz.forEach((item, i)=>{
+        const input = quizArea.querySelector(`input[data-index="${i}"]`);
+        if(input.value.trim().toLowerCase() === item.a.toLowerCase()){
+          correct++;
+          input.style.borderColor = '#6ee7b7';
+        } else {
+          input.style.borderColor = 'red';
+        }
+      });
+      scoreEl.textContent = `Score: ${correct} / ${quiz.length}`;
+    }
+
+    function resetQuiz(){
+      quizArea.querySelectorAll('input').forEach(input=>{
+        input.value = '';
+        input.style.borderColor = 'rgba(255,255,255,0.1)';
+      });
+      scoreEl.textContent = '';
+    }
+
+    checkBtn.addEventListener('click', checkAnswers);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+  </script>
+</body>
+</html>
