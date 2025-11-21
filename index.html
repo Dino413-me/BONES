@@ -11,24 +11,18 @@
     header{padding:28px 20px; text-align:center}
     h1{margin:0;font-size:28px}
     p.lead{color:var(--muted); margin-top:6px}
-
     .container{max-width:980px;margin:18px auto;padding:18px}
     .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
     .card{background:rgba(255,255,255,0.02);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-
     .images img{width:100%;border-radius:8px;display:block;margin-bottom:12px}
     table{width:100%;border-collapse:collapse;margin-top:6px}
     th,td{padding:8px 6px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03);font-size:14px}
     th{color:var(--accent);font-weight:600}
-
     .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .notes p{margin:6px 0;color:var(--muted);font-size:14px}
-
     .quiz{margin-top:12px}
     .quiz button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
-
     .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-
     @media (max-width:880px){.grid{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
   </style>
 </head>
@@ -137,4 +131,15 @@
 
   <script>
     const quiz = [
-      {q:'What bone
+      {q:'What bone is labelled 19?', a:'Humerus'},
+      {q:'Which number is the Pubis?', a:'27'},
+      {q:'Which bone is the heel?', a:'Calcaneus'},
+      {q:'Phalanges numbers (hand then foot)?', a:'7, 26'}
+    ];
+
+    const quizArea = document.getElementById('quiz-area');
+    const checkBtn = document.getElementById('check-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const scoreEl = document.getElementById('score');
+
+    function
